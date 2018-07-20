@@ -6,16 +6,15 @@
 <head runat="server">
     <title></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
-    <style type="text/css">
-        
-    </style>
+    <link href="Style/Style.css" rel="stylesheet" />
+    
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="container-fluid">
             <div class="jumbotron">
         <div>
-            <h1>Temperature Convertor</h1><br />
+            <h1 class="text-center">Temperature Convertor</h1><br />
             <br />
             <div class="container">
                 <div class="row">
@@ -34,8 +33,8 @@
                         <br /><br />
                         <asp:TextBox ID="txtInput" runat="server"></asp:TextBox>
                         <br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtInput" Display="Dynamic" ErrorMessage="Input field cannot be Empty"></asp:RequiredFieldValidator>
-                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtInput" Display="Dynamic" EnableTheming="True" ErrorMessage="Input must be a number between -1000 and 1000" MaximumValue="1000" MinimumValue="-1000" Type="Double"></asp:RangeValidator>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" class="validator" runat="server" ControlToValidate="txtInput" Display="Dynamic" ErrorMessage="Input field cannot be Empty"></asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="RangeValidator1" class="validator" runat="server" ControlToValidate="txtInput" Display="Dynamic" EnableTheming="True" ErrorMessage="Input must be a number between -1000 and 1000" MaximumValue="1000" MinimumValue="-1000" Type="Double"></asp:RangeValidator>
                         <br />
                         <asp:Button ID="btnConvert" runat="server" class="btn btn-outline-success" Text="Convert" OnClick="btnConvert_Click" />
                     </div>
