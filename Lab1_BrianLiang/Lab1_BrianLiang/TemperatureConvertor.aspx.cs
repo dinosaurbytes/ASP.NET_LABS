@@ -16,8 +16,8 @@ namespace Lab1_BrianLiang
 
         //}
 
-        const decimal CON_FACTOR_FROM_FAHRENHEIT = 5/9;     //converstion factor calculating to fahrenheit     
-        const decimal CON_FACTOR_TO_FAHRENHEIT = 9/5;       //conversion factor calculating from fahrenheit
+        const decimal CON_FACTOR_FROM_FAHRENHEIT = 5/9m;     //converstion factor calculating to fahrenheit     
+        const decimal CON_FACTOR_TO_FAHRENHEIT = 9/5m;       //conversion factor calculating from fahrenheit
         const decimal ABSOLUTE_ZERO_F = 32;        //32F is absolute zero in K
         const decimal ABSOLUTE_ZERO_C= 273.15m;     //273.15C is absolute zero in K
 
@@ -31,40 +31,51 @@ namespace Lab1_BrianLiang
         protected void btnConvert_Click(object sender, EventArgs e)
         {
             decimal input = Convert.ToDecimal(txtInput.Text);
-            decimal output;
+            decimal output = 0;
 
             if (ddlFrom.Text == "Celsius" && ddlTo.Text == "Fahrenheit")
             {
                 output = (input * 9 / 5) + ABSOLUTE_ZERO_F;
                 txtOutput.Text = output.ToString("F2");
             }
-            if (ddlFrom.Text == "Celsius" && ddlTo.Text == "Kelvin")
+            else if (ddlFrom.Text == "Celsius" && ddlTo.Text == "Kelvin")
             {
                 output = input + ABSOLUTE_ZERO_C;
                 txtOutput.Text = output.ToString("F2");
             }
-            if (ddlFrom.Text == "Fahrenheit" && ddlTo.Text == "Celsius")
+            else if (ddlFrom.Text == "Fahrenheit" && ddlTo.Text == "Celsius")
             {
-                output = (input -ABSOLUTE_ZERO_F) * CON_FACTOR_FROM_FAHRENHEIT;     //(F - 32) * 5/9
+                output = (input - ABSOLUTE_ZERO_F) * CON_FACTOR_FROM_FAHRENHEIT;     //(F - 32) * 5/9
                 txtOutput.Text = output.ToString("F2");
             }
-            if (ddlFrom.Text == "Fahrenheit" && ddlTo.Text == "Kelvin")         
+            else if (ddlFrom.Text == "Fahrenheit" && ddlTo.Text == "Kelvin")
             {
                 output = (input - ABSOLUTE_ZERO_F) * CON_FACTOR_FROM_FAHRENHEIT + ABSOLUTE_ZERO_C;               //(F - 32) * 5/9 + 273.15
                 txtOutput.Text = output.ToString("F2");
             }
-            if (ddlFrom.Text == "Kelvin" && ddlTo.Text == "Celsius")
+            else if (ddlFrom.Text == "Kelvin" && ddlTo.Text == "Celsius")
             {
                 output = input - ABSOLUTE_ZERO_C;         //K - 273.15
                 txtOutput.Text = output.ToString("F2");
             }
-            if (ddlFrom.Text == "Kelvin" && ddlTo.Text == "Fahrenheit")             
+            else if (ddlFrom.Text == "Kelvin" && ddlTo.Text == "Fahrenheit")
             {
                 output = (input - ABSOLUTE_ZERO_C) * CON_FACTOR_TO_FAHRENHEIT + ABSOLUTE_ZERO_F;                   //(K - 273.15) * 9/5 + 32
                 txtOutput.Text = output.ToString("F2");
             }
             else
-                txtOutput.Text = txtInput.Text;
+            {
+                output = Convert.ToDecimal(txtInput.Text);
+                txtOutput.Text = output.ToString("F2");
+            }
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtInput.Text = "";
+            txtOutput.Text = "";
+            txtInput.Focus();
+            
         }
     }
 }

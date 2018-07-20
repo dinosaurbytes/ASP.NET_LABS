@@ -31,8 +31,8 @@
                 <asp:ListItem>Kelvin</asp:ListItem>
             </asp:DropDownList>
             <asp:DropDownList ID="ddlTo" runat="server">
-                <asp:ListItem>Celsius</asp:ListItem>
                 <asp:ListItem>Fahrenheit</asp:ListItem>
+                <asp:ListItem>Celsius</asp:ListItem>
                 <asp:ListItem>Kelvin</asp:ListItem>
             </asp:DropDownList>
             <br />
@@ -46,7 +46,7 @@
             <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtInput" Display="Dynamic" EnableTheming="True" ErrorMessage="Input must be a number between -1000 and 1000" MaximumValue="1000" MinimumValue="-1000" Type="Double"></asp:RangeValidator>
             <br />
             <asp:Button ID="btnConvert" runat="server" Text="Convert" OnClick="btnConvert_Click" />
-            <asp:Button ID="btnClear" runat="server" Text="Clear" CausesValidation="False" />
+            <asp:Button ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click" />
             <br />
             <br />
         </div>
