@@ -17,7 +17,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            <asp:Calendar ID="Calendar1" runat="server" OnDayRender="Calendar1_DayRender"></asp:Calendar>
+                            <asp:Calendar ID="Calendar" runat="server" OnDayRender="Calendar1_DayRender"></asp:Calendar>
                         </div>
                         <div class="col-6">
                             <asp:TextBox ID="txtInput" runat="server"></asp:TextBox>

@@ -35,9 +35,9 @@ namespace WebApplication1
 
             //session state counter
 
-            if(Session["count"] != null)
+            if(Application["firstSatCount"] != null)
             {
-                firstSatCounter = (int)Session["count"];
+                firstSatCounter = (int)Application["firstSatCount"];
 
             }
             
