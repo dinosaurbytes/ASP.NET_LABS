@@ -115,17 +115,17 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="TemperatureConvertor.aspx" />
+    <Content Include="Tempearture Convertor.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TemperatureConvertor.aspx.cs">
-      <DependentUpon>TemperatureConvertor.aspx</DependentUpon>
+    <Compile Include="Tempearture Convertor.aspx.cs">
+      <DependentUpon>Tempearture Convertor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TemperatureConvertor.aspx.designer.cs">
-      <DependentUpon>TemperatureConvertor.aspx</DependentUpon>
+    <Compile Include="Tempearture Convertor.aspx.designer.cs">
+      <DependentUpon>Tempearture Convertor.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

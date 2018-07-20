@@ -19,11 +19,6 @@ namespace Lab1_BrianLiang
 
 
 
-        protected void ddlFrom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnConvert_Click(object sender, EventArgs e)
         {
             decimal input = Convert.ToDecimal(txtInput.Text);       //sets the txtInput value to the variable input
