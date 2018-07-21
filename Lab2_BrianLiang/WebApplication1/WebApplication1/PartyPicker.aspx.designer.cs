@@ -31,21 +31,39 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Calendar Calendar;
         
         /// <summary>
-        /// txtInput control.
+        /// txtFirstSatCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInput;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstSatCount;
         
         /// <summary>
-        /// Button1 control.
+        /// txtSecondSatCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox txtSecondSatCount;
+        
+        /// <summary>
+        /// txtThirdSatCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtThirdSatCount;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }
