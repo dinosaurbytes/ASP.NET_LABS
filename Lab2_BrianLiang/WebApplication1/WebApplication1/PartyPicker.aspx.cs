@@ -14,21 +14,33 @@ namespace WebApplication1
 
         public static int daysUntilSaturday = ((int)DayOfWeek.Saturday - (int)today.DayOfWeek + 7) % 7;
 
-        DateTime nextSaturday = today.AddDays(daysUntilSaturday);
+        DateTime firstSaturday = today.AddDays(daysUntilSaturday);
         DateTime secondSaturday = today.AddDays(daysUntilSaturday + 7);
         DateTime thirdSaturday = today.AddDays(daysUntilSaturday + 14);
-        DateTime selectedDate;
+        
 
-        int firstSatCount = 0;
-        int secondSatCount = 0;
-        int thridSatCount = 0;
+        int firstSatCount;
+        int secondSatCount;
+        int thirdSatCount;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //txtFirstSatCount.Text = firstSatCount.ToString();
-            //txtSecondSatCount.Text = secondSatCount.ToString();
-            //txtThirdSatCount.Text = thridSatCount.ToString();
-            
+            if (Application["countFrirstSat"] != null) // if it is in the application state
+            {
+                firstSatCount = (int)Application["countFirstSat"];
+            }
+            txtFirstSatCount.Text = firstSatCount.ToString();
+            if (Application["countSecondSat"] != null) // if it is in the application state
+            {
+                firstSatCount = (int)Application["countSecondSat"];
+            }
+            txtSecondSatCount.Text = secondSatCount.ToString();
+            if (Application["countThirdSat"] != null) // if it is in the application state
+            {
+                thirdSatCount = (int)Application["countThirdSat"];
+            }
+            txtThirdSatCount.Text = thirdSatCount.ToString();
+
         }
 
 
@@ -59,9 +71,41 @@ namespace WebApplication1
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (Calendar.SelectedDate == nextSaturday)
-                ++firstSatCount;
-            txtFirstSatCount.Text = firstSatCount.ToString();
+            if (Calendar.SelectedDate == firstSaturday)
+            {
+                Application.Lock(); // lock before changing shared data
+                if (Application["countFirstSat"] != null)
+                    firstSatCount = (int)Application["countFirstSat"];
+                firstSatCount++;
+                Application["countFirstSat"] = firstSatCount; // add it to the application state
+                Application.UnLock(); // release the lock
+
+                txtFirstSatCount.Text = firstSatCount.ToString();
+            }
+            if (Calendar.SelectedDate == secondSaturday)
+            {
+                Application.Lock(); // lock before changing shared data
+                if (Application["countSecondSat"] != null)
+                    secondSatCount = (int)Application["countSecondSat"];
+                secondSatCount++;
+                Application["countSecondSat"] = secondSatCount; // add it to the application state
+                Application.UnLock(); // release the lock
+
+                txtSecondSatCount.Text = secondSatCount.ToString();
+            }
+            if (Calendar.SelectedDate == thirdSaturday)
+            {
+                Application.Lock(); // lock before changing shared data
+                if (Application["countThirdSat"] != null)
+                    thirdSatCount = (int)Application["countThirdSat"];
+                thirdSatCount++;
+                Application["countThirdSat"] = thirdSatCount; // add it to the application state
+                Application.UnLock(); // release the lock
+
+                txtThirdSatCount.Text = thirdSatCount.ToString();
+            }
+            //    ++firstSatCount;
+            //txtFirstSatCount.Text = firstSatCount.ToString();
 
         }
     }
