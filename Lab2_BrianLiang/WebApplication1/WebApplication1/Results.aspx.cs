@@ -54,6 +54,8 @@ namespace WebApplication1
                 thirdSatCount = (int)Application["countThirdSat"];
             }
             txtThirdSatCount.Text = thirdSatCount.ToString();
+
+
             
             
 

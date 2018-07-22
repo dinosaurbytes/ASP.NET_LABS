@@ -23,6 +23,8 @@ namespace WebApplication1
         int secondSatCount;
         int thirdSatCount;
 
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Application["countFrirstSat"] != null) // if it is in the application state
@@ -72,8 +74,9 @@ namespace WebApplication1
                 firstSatCount++;
                 Application["countFirstSat"] = firstSatCount; // add it to the application state
                 Application.UnLock(); // release the lock
+                Response.Redirect("Results.aspx");
             }
-            if (Calendar.SelectedDate == secondSaturday)
+            else if (Calendar.SelectedDate == secondSaturday)
             {
                 Application.Lock(); // lock before changing shared data
                 if (Application["countSecondSat"] != null)
@@ -81,15 +84,21 @@ namespace WebApplication1
                 secondSatCount++;
                 Application["countSecondSat"] = secondSatCount; // add it to the application state
                 Application.UnLock(); // release the lock
+                Response.Redirect("Results.aspx");
             }
-            if (Calendar.SelectedDate == thirdSaturday)
+            else if (Calendar.SelectedDate == thirdSaturday)
             {
                 Application.Lock(); // lock before changing shared data
                 if (Application["countThirdSat"] != null)
                     thirdSatCount = (int)Application["countThirdSat"];
                 thirdSatCount++;
                 Application["countThirdSat"] = thirdSatCount; // add it to the application state
-                Application.UnLock(); // release the lock             
+                Application.UnLock(); // release the lock   
+                Response.Redirect("Results.aspx");
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Please select a date before voting.');</script>");
             }
         }
     }

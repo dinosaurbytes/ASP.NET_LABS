@@ -28,7 +28,7 @@
                             </asp:Calendar>
                         
                             <br />
-                            <asp:Button ID="btnSubmit" runat="server" Text="Submit Vote" OnClick="btnSubmit_Click" PostBackUrl="~/Results.aspx" />
+                            <asp:Button ID="btnSubmit" runat="server" Text="Submit Vote" OnClick="btnSubmit_Click" />
                             
                       
                 </div>

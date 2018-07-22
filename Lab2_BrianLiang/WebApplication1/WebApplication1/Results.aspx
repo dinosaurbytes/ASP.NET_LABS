@@ -9,18 +9,23 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Results"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="lblNextSaturday" runat="server"></asp:Label>
-            <asp:TextBox ID="txtFirstSatCount" runat="server" ReadOnly="True"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblSecondSaturday" runat="server"></asp:Label>
-            <asp:TextBox ID="txtSecondSatCount" runat="server" ReadOnly="True"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblThridSaturday" runat="server"></asp:Label>
-            <asp:TextBox ID="txtThirdSatCount" runat="server" ReadOnly="True"></asp:TextBox>
-            <br />
+            <h1>The Votes So Far:</h1>
+
+            <table>
+                <tr>
+                    <td><asp:Label ID="lblNextSaturday" runat="server"></asp:Label></td>
+                    <td><asp:TextBox ID="txtFirstSatCount" runat="server" ReadOnly="True"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Label ID="lblSecondSaturday" runat="server"></asp:Label></td>
+                    <td> <asp:TextBox ID="txtSecondSatCount" runat="server" ReadOnly="True"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Label ID="lblThridSaturday" runat="server"></asp:Label></td>
+                    <td><asp:TextBox ID="txtThirdSatCount" runat="server" ReadOnly="True"></asp:TextBox></td>
+                </tr>
+            </table>
+
             <br />
             <asp:Button ID="btnGoBack" runat="server" PostBackUrl="~/PartyPicker.aspx" Text="Go Back" />
         </div>
