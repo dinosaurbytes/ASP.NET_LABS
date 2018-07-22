@@ -29,21 +29,15 @@ namespace WebApplication1
             {
                 firstSatCount = (int)Application["countFirstSat"];
             }
-            txtFirstSatCount.Text = firstSatCount.ToString();
             if (Application["countSecondSat"] != null) // if it is in the application state
             {
                 firstSatCount = (int)Application["countSecondSat"];
             }
-            txtSecondSatCount.Text = secondSatCount.ToString();
             if (Application["countThirdSat"] != null) // if it is in the application state
             {
                 thirdSatCount = (int)Application["countThirdSat"];
             }
-            txtThirdSatCount.Text = thirdSatCount.ToString();
-
         }
-
-
 
 
         protected void Calendar1_DayRender(object sender, DayRenderEventArgs e)
@@ -64,8 +58,7 @@ namespace WebApplication1
             {
                 e.Day.IsSelectable = true;
                 e.Cell.BackColor = System.Drawing.Color.Blue;
-                e.Cell.ForeColor = System.Drawing.Color.White;
-                
+                e.Cell.ForeColor = System.Drawing.Color.White;                
             }
         }
 
@@ -79,8 +72,6 @@ namespace WebApplication1
                 firstSatCount++;
                 Application["countFirstSat"] = firstSatCount; // add it to the application state
                 Application.UnLock(); // release the lock
-
-                txtFirstSatCount.Text = firstSatCount.ToString();
             }
             if (Calendar.SelectedDate == secondSaturday)
             {
@@ -90,8 +81,6 @@ namespace WebApplication1
                 secondSatCount++;
                 Application["countSecondSat"] = secondSatCount; // add it to the application state
                 Application.UnLock(); // release the lock
-
-                txtSecondSatCount.Text = secondSatCount.ToString();
             }
             if (Calendar.SelectedDate == thirdSaturday)
             {
@@ -100,13 +89,8 @@ namespace WebApplication1
                     thirdSatCount = (int)Application["countThirdSat"];
                 thirdSatCount++;
                 Application["countThirdSat"] = thirdSatCount; // add it to the application state
-                Application.UnLock(); // release the lock
-
-                txtThirdSatCount.Text = thirdSatCount.ToString();
+                Application.UnLock(); // release the lock             
             }
-            //    ++firstSatCount;
-            //txtFirstSatCount.Text = firstSatCount.ToString();
-
         }
     }
 }

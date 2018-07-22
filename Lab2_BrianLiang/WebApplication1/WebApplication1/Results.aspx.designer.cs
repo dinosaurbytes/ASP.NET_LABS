@@ -31,15 +31,6 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// lblResults control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblResults;
-        
-        /// <summary>
         /// lblNextSaturday control.
         /// </summary>
         /// <remarks>
@@ -49,13 +40,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label lblNextSaturday;
         
         /// <summary>
-        /// firstSatTotal control.
+        /// txtFirstSatCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstSatTotal;
+        protected global::System.Web.UI.WebControls.TextBox txtFirstSatCount;
         
         /// <summary>
         /// lblSecondSaturday control.
@@ -67,6 +58,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label lblSecondSaturday;
         
         /// <summary>
+        /// txtSecondSatCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSecondSatCount;
+        
+        /// <summary>
         /// lblThridSaturday control.
         /// </summary>
         /// <remarks>
@@ -76,6 +76,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Label lblThridSaturday;
         
         /// <summary>
+        /// txtThirdSatCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtThirdSatCount;
+        
+        /// <summary>
         /// btnGoBack control.
         /// </summary>
         /// <remarks>
@@ -83,14 +92,5 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGoBack;
-        
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

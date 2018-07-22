@@ -27,13 +27,8 @@
                                 <TodayDayStyle BackColor="#CCCC99" />
                             </asp:Calendar>
                         
-                            <asp:TextBox ID="txtFirstSatCount" runat="server"></asp:TextBox>
                             <br />
-                            <asp:TextBox ID="txtSecondSatCount" runat="server"></asp:TextBox>
-                            <br />
-                            <asp:TextBox ID="txtThirdSatCount" runat="server"></asp:TextBox>
-                            <br />
-                            <asp:Button ID="btnSubmit" runat="server" Text="Submit Vote" OnClick="btnSubmit_Click" />
+                            <asp:Button ID="btnSubmit" runat="server" Text="Submit Vote" OnClick="btnSubmit_Click" PostBackUrl="~/Results.aspx" />
                             
                       
                 </div>
