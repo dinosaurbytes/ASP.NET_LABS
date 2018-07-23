@@ -75,6 +75,8 @@
     <Content Include="App_Code\TechSupportDB.cs" />
     <Content Include="App_Code\Technician.cs" />
     <Content Include="App_Code\TechnicianDB.cs" />
+    <Content Include="App_Code\Incident.cs" />
+    <Content Include="App_Code\IncidentDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TechnicianSelect.aspx.cs">
       <DependentUpon>TechnicianSelect.aspx</DependentUpon>
