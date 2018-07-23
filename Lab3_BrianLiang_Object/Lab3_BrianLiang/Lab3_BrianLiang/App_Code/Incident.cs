@@ -17,7 +17,7 @@ namespace Lab3_BrianLiang
 
         public string ProductCode { get; set; }
 
-        public int TechID { get; set; }
+        public int? TechID { get; set; }
 
         public DateTime DateOpened { get; set; }
 
