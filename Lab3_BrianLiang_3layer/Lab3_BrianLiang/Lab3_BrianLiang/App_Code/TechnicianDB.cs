@@ -14,10 +14,48 @@ namespace Lab3_BrianLiang
     {   
 
 
+        //[DataObjectMethod(DataObjectMethodType.Select)]
+        //public static List<Technician> GetTechnicians()
+        //{
+        //    List<Technician> states = new List<Technician>(); // make an empty list
+        //    Technician tech; // reference to new state object
+        //    // create connection
+        //    SqlConnection connection = TechSupportDB.GetConnection();
+
+        //    // create select command
+        //    string selectString = "select TechID, Name from Technicians " +
+        //                          "order by Name";
+        //    SqlCommand selectCommand = new SqlCommand(selectString, connection);
+        //    try
+        //    {
+        //        // open connection
+        //        connection.Open();
+        //        // run the select command and process the results adding states to the list
+        //        SqlDataReader reader = selectCommand.ExecuteReader();
+        //        while(reader.Read())// process next row
+        //        {
+        //            tech = new Technician();
+        //            tech.TechID = (int) reader["TechID"];
+        //            tech.Name = reader["Name"].ToString();
+        //            states.Add(tech);
+        //        }
+        //        reader.Close();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex; // throw it to the form to handle
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+        //    return states;
+        //}
+
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<Technician> GetIncidents()
+        public static List<Technician> GetTechnician()
         {
-            List<Technician> states = new List<Technician>(); // make an empty list
+            List<Technician> technicians = new List<Technician>(); // make an empty list
             Technician tech; // reference to new state object
             // create connection
             SqlConnection connection = TechSupportDB.GetConnection();
@@ -32,12 +70,12 @@ namespace Lab3_BrianLiang
                 connection.Open();
                 // run the select command and process the results adding states to the list
                 SqlDataReader reader = selectCommand.ExecuteReader();
-                while(reader.Read())// process next row
+                while (reader.Read())// process next row
                 {
                     tech = new Technician();
                     tech.TechID = (int) reader["TechID"];
-                    tech.Name = reader["Name"].ToString();
-                    states.Add(tech);
+                    tech.Name = reader["StateName"].ToString();
+                    technicians.Add(tech);
                 }
                 reader.Close();
             }
@@ -49,7 +87,7 @@ namespace Lab3_BrianLiang
             {
                 connection.Close();
             }
-            return states;
+            return technicians;
         }
     }
 }
