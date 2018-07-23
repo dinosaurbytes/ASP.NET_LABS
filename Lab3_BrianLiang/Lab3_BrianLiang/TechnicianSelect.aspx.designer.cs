@@ -31,6 +31,15 @@ namespace Lab3_BrianLiang {
         protected global::System.Web.UI.WebControls.SqlDataSource dsTechnicians;
         
         /// <summary>
+        /// dsIncidents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsIncidents;
+        
+        /// <summary>
         /// ddlTechnicians control.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,14 @@ namespace Lab3_BrianLiang {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTechnicians;
+        
+        /// <summary>
+        /// gvIncidents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvIncidents;
     }
 }
