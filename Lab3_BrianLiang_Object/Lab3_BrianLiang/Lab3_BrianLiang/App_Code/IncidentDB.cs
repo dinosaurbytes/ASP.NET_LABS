@@ -28,9 +28,10 @@ namespace Lab3_BrianLiang
             SqlConnection connection = TechSupportDB.GetConnection(); // define connection
 
             // define the select query command
-            string selectQuery = "select IncidentID, CustomerID, ProductCode, TechID, DateOpened, DateClosed, Title, Description " +
-                                 "from Incidents " +
-                                 "where TechID = @TechID";
+            string selectQuery = "select IncidentID, Customers.CustomerID, ProductCode, TechID, DateOpened, DateClosed, Title, Description, Name " +
+                                 "from Incidents inner join Customers on Incidents.CustomerID = Customers.CustomerID " +
+                                 "where TechID = @TechID " +
+                                 "order by DateOpened";
             SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
             selectCommand.Parameters.AddWithValue("@TechID", techID);
             try
@@ -57,6 +58,7 @@ namespace Lab3_BrianLiang
                         tech.DateClosed = (DateTime?)null;                      //DateClosed
                         tech.Title = reader["Title"].ToString();                //Title
                         tech.Description = reader["Description"].ToString();    //Description
+                        tech.Name = reader["Name"].ToString();                  //Name of Customer
                         incidents.Add(tech);
                     }
                 }

@@ -32,5 +32,7 @@ namespace Lab3_BrianLiang
         public string Title { get; set; }       //Title getter setter
 
         public string Description { get; set; }     //Description getter setter
+
+        public string Name { get; set; }            //Customer name from inner join of customer table
     }
 }
