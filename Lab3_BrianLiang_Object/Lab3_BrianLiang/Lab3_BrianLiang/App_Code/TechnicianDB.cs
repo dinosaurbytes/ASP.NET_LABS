@@ -6,18 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * Lab3 ASP.NET
+ * Author: Brian Liang
+ * Date: July 2018
+ */
+
+
 namespace Lab3_BrianLiang
 {
-    [DataObject(true)]
+    [DataObject(true)]          //allows technicianDB to be seen as data object
     public static class TechnicianDB
     {
-        [DataObjectMethod(DataObjectMethodType.Select)]
+        [DataObjectMethod(DataObjectMethodType.Select)]     //data object method select attribute
         public static List<Technician> GetTechnicians()
         {
             List<Technician> technicians = new List<Technician>(); // make an empty list
             Technician tech; // reference to new state object
-            // create connection
-            SqlConnection connection = TechSupportDB.GetConnection();
+            
+            SqlConnection connection = TechSupportDB.GetConnection(); // create connection
 
             // create select command
             string selectString = "select TechID, Name from Technicians " +
@@ -32,11 +39,11 @@ namespace Lab3_BrianLiang
                 while(reader.Read())// process next row
                 {
                     tech = new Technician();
-                    tech.TechID = (int) reader["TechID"];
-                    tech.Name = reader["Name"].ToString();
-                    technicians.Add(tech);
+                    tech.TechID = (int) reader["TechID"];       //TechID
+                    tech.Name = reader["Name"].ToString();      //Tech Name
+                    technicians.Add(tech);      //adding them to technician list
                 }
-                reader.Close();
+                reader.Close();     // close reader
             }
             catch (Exception ex)
             {
@@ -44,9 +51,9 @@ namespace Lab3_BrianLiang
             }
             finally
             {
-                connection.Close();
+                connection.Close();     //close connection
             }
-            return technicians;
+            return technicians;     // returns the technicans list
         }
     }
 }

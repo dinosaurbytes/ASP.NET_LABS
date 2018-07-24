@@ -2,28 +2,52 @@
 
 <!DOCTYPE html>
 
+<!--*
+    * Lab3 ASP.NET
+    * Author: Brian Liang
+    * Date: July 2018
+    *-->
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="Content/bootstrap.css" rel="stylesheet" /> <!-- Using bootstrap for styling -->
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="p-3 mb-2 bg-info text-white">
+            <h1>Open Incident Board</h1> 
+            <br />
+            <h2>Select A Technician</h2>
             <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="ObjectDataSource1" DataTextField="Name" DataValueField="TechID">
             </asp:DropDownList>
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetTechnicians" TypeName="Lab3_BrianLiang.TechnicianDB"></asp:ObjectDataSource>
             <br />
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource2">
+            <br />
+            <h2>Open Incidents</h2>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource2" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
                 <Columns>
                     <asp:BoundField DataField="IncidentID" HeaderText="IncidentID" SortExpression="IncidentID" />
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
-                    <asp:BoundField DataField="ProductCode" HeaderText="ProductCode" SortExpression="ProductCode" />
                     <asp:BoundField DataField="TechID" HeaderText="TechID" SortExpression="TechID" />
-                    <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" />
-                    <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
+                    <asp:BoundField DataField="ProductCode" HeaderText="ProductCode" SortExpression="ProductCode" />
                     <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                    <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" />
+                    <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
                 </Columns>
+                <EmptyDataTemplate>
+                    <asp:Label ID="Label1" runat="server" ForeColor="#000099" Text="No Open Incidents"></asp:Label>
+                </EmptyDataTemplate>
+                <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+                <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+                <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+                <RowStyle BackColor="White" ForeColor="#003399" />
+                <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                <SortedAscendingCellStyle BackColor="#EDF6F6" />
+                <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+                <SortedDescendingCellStyle BackColor="#D6DFDF" />
+                <SortedDescendingHeaderStyle BackColor="#002876" />
             </asp:GridView>
             <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetIncidentByTechnician" TypeName="Lab3_BrianLiang.IncidentDB">
                 <SelectParameters>
@@ -35,4 +59,7 @@
         </div>
     </form>
 </body>
+    <script src="Scripts/jquery-3.0.0.js"></script>
+<script src="Scripts/bootstrap.js"></script>
+<script src="Scripts/popper.js"></script>
 </html>

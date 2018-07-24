@@ -7,19 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
+ * Lab3 ASP.NET
+ * Author: Brian Liang
+ * Date: July 2018
+ */
+
 namespace Lab3_BrianLiang
 {
-    [DataObject(true)]
+    [DataObject(true)]          //Allows it to be visible as a data object
     public static class IncidentDB
     {
 
-        [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<Incident> GetIncidentByTechnician(int techID)
+        [DataObjectMethod(DataObjectMethodType.Select)]     //data object method attribute for select
+        public static List<Incident> GetIncidentByTechnician(int techID)        //Get based on techID parameter
         {
             List<Incident> incidents = new List<Incident>(); // empty list
             Incident tech = null; // reference for reading 
-            // define connection
-            SqlConnection connection = TechSupportDB.GetConnection();
+            
+            SqlConnection connection = TechSupportDB.GetConnection(); // define connection
 
             // define the select query command
             string selectQuery = "select IncidentID, CustomerID, ProductCode, TechID, DateOpened, DateClosed, Title, Description " +
@@ -41,36 +47,18 @@ namespace Lab3_BrianLiang
                     tech = new Incident();
 
                     object sqlDateTime = reader["DateClosed"];
-                    if(sqlDateTime == System.DBNull.Value)
+                    if(sqlDateTime == System.DBNull.Value)              //if DateClosed is null
                     {
-                        tech.IncidentID = (int)reader["IncidentID"];
-                        tech.CustomerID = (int)reader["CustomerID"];
-                        tech.ProductCode = reader["ProductCode"].ToString();
-                        tech.TechID = (int?)reader["TechID"];
-                        tech.DateOpened = (DateTime)reader["DateOpened"];
-                        tech.DateClosed = (DateTime?)null;
-                        tech.Title = reader["Title"].ToString();
-                        tech.Description = reader["Description"].ToString();
+                        tech.IncidentID = (int)reader["IncidentID"];            //incidentID
+                        tech.CustomerID = (int)reader["CustomerID"];            //CustomerID
+                        tech.ProductCode = reader["ProductCode"].ToString();    //ProductCode
+                        tech.TechID = (int?)reader["TechID"];                   //TechID
+                        tech.DateOpened = (DateTime)reader["DateOpened"];       //DateOpened
+                        tech.DateClosed = (DateTime?)null;                      //DateClosed
+                        tech.Title = reader["Title"].ToString();                //Title
+                        tech.Description = reader["Description"].ToString();    //Description
                         incidents.Add(tech);
                     }
-
-                    //tech.IncidentID = (int)reader["IncidentID"];
-                    //tech.CustomerID = (int)reader["CustomerID"];
-                    //tech.ProductCode = reader["ProductCode"].ToString();
-                    //tech.TechID = (int?)reader["TechID"];
-                    //tech.DateOpened = (DateTime)reader["DateOpened"];
-
-                    ////tech.DateClosed = (DateTime?)reader["DateClosed"];
-                    //object sqlDateTime = reader["DateClosed"];
-                    //tech.DateClosed = (sqlDateTime == System.DBNull.Value)
-                    //    ? (DateTime?)null
-                    //    : Convert.ToDateTime(reader["DateClosed"]);
-
-                    //tech.Title = reader["Title"].ToString();
-                    //tech.Description = reader["Description"].ToString();
-
-                    
-                    //incidents.Add(tech);
                 }
             }
             catch (Exception ex)
@@ -82,10 +70,16 @@ namespace Lab3_BrianLiang
                 connection.Close(); // close connecto no matter what
             }
 
-            return incidents;
+            return incidents;   //return the incidents list
         }
     }
 }
+
+/*
+ * NOTE:
+ * The following is based on the code written in the object source demo. The code below is for selecting, updating
+ * and deleting. If we decide to advance the app to include those features we can use the below code.
+ */
 
 
 //        // retrieves customer with given ID
