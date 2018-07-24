@@ -39,23 +39,38 @@ namespace Lab3_BrianLiang
                 while (reader.Read()) // while there are customers
                 {
                     tech = new Incident();
-                    tech.IncidentID = (int)reader["IncidentID"];
-                    tech.CustomerID = (int)reader["CustomerID"];
-                    tech.ProductCode = reader["ProductCode"].ToString();
-                    tech.TechID = (int?)reader["TechID"];
-                    tech.DateOpened = (DateTime)reader["DateOpened"];
-                    //tech.DateClosed = (DateTime?)reader["DateClosed"];
-                    object sqlDateTime = reader["DateClosed"];
-                    tech.DateClosed = (sqlDateTime == System.DBNull.Value)
-                        ? (DateTime?)null
-                        : Convert.ToDateTime(reader["DateClosed"]);
 
-                    tech.Title = reader["Title"].ToString();
-                    tech.Description = reader["Description"].ToString();
+                    object sqlDateTime = reader["DateClosed"];
+                    if(sqlDateTime == System.DBNull.Value)
+                    {
+                        tech.IncidentID = (int)reader["IncidentID"];
+                        tech.CustomerID = (int)reader["CustomerID"];
+                        tech.ProductCode = reader["ProductCode"].ToString();
+                        tech.TechID = (int?)reader["TechID"];
+                        tech.DateOpened = (DateTime)reader["DateOpened"];
+                        tech.DateClosed = (DateTime?)null;
+                        tech.Title = reader["Title"].ToString();
+                        tech.Description = reader["Description"].ToString();
+                        incidents.Add(tech);
+                    }
+
+                    //tech.IncidentID = (int)reader["IncidentID"];
+                    //tech.CustomerID = (int)reader["CustomerID"];
+                    //tech.ProductCode = reader["ProductCode"].ToString();
+                    //tech.TechID = (int?)reader["TechID"];
+                    //tech.DateOpened = (DateTime)reader["DateOpened"];
+
+                    ////tech.DateClosed = (DateTime?)reader["DateClosed"];
+                    //object sqlDateTime = reader["DateClosed"];
+                    //tech.DateClosed = (sqlDateTime == System.DBNull.Value)
+                    //    ? (DateTime?)null
+                    //    : Convert.ToDateTime(reader["DateClosed"]);
+
+                    //tech.Title = reader["Title"].ToString();
+                    //tech.Description = reader["Description"].ToString();
 
                     
-
-                    incidents.Add(tech);
+                    //incidents.Add(tech);
                 }
             }
             catch (Exception ex)
