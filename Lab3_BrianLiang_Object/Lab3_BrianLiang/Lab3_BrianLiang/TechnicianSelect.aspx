@@ -27,16 +27,19 @@
             <h2>Open Incidents</h2>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource2">
                 <Columns>
+                    <asp:BoundField DataField="Name" HeaderText="Customer Name" SortExpression="Name" />
                     <asp:BoundField DataField="IncidentID" HeaderText="IncidentID" SortExpression="IncidentID" />
-                    <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
                     <asp:BoundField DataField="ProductCode" HeaderText="ProductCode" SortExpression="ProductCode" />
-                    <asp:BoundField DataField="TechID" HeaderText="TechID" SortExpression="TechID" />
-                    <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" />
-                    <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
                     <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" />
+                    <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
+                    <asp:BoundField DataField="TechID" HeaderText="TechID" SortExpression="TechID" Visible="False" />
+                    <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" Visible="False" />
                 </Columns>
+                <EmptyDataTemplate>
+                    <asp:Label ID="Label1" runat="server" ForeColor="#000099" Text="No Open Incidents For This Technician"></asp:Label>
+                </EmptyDataTemplate>
             </asp:GridView>
             <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetIncidentByTechnician" TypeName="Lab3_BrianLiang.IncidentDB">
                 <SelectParameters>
