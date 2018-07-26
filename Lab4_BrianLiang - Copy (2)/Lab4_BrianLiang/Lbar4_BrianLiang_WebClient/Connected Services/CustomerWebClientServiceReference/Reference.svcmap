@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e88442d8-21f3-4cbf-ba38-b466e1487bca" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:56820/IncidentService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IncidentService.xsd" MetadataType="Schema" ID="829fa0ea-e5be-4e0c-97ea-db02b61d9432" SourceId="1" SourceUrl="http://localhost:56820/IncidentService.svc?xsd=xsd1" />
+    <MetadataFile FileName="IncidentService.disco" MetadataType="Disco" ID="90bdbd32-2b6b-41f3-a0c6-e569a27ec37a" SourceId="1" SourceUrl="http://localhost:56820/IncidentService.svc?disco" />
+    <MetadataFile FileName="IncidentService.wsdl" MetadataType="Wsdl" ID="1501b8b0-42ae-45c3-9a7f-1fbd1bff72db" SourceId="1" SourceUrl="http://localhost:56820/IncidentService.svc?wsdl" />
+    <MetadataFile FileName="IncidentService1.xsd" MetadataType="Schema" ID="12fab105-3512-4974-8d3c-a4363427f4d6" SourceId="1" SourceUrl="http://localhost:56820/IncidentService.svc?xsd=xsd0" />
+    <MetadataFile FileName="IncidentService2.xsd" MetadataType="Schema" ID="493e1d2a-f698-48a5-bd65-f46f5ec7fed3" SourceId="1" SourceUrl="http://localhost:56820/IncidentService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
