@@ -5,6 +5,12 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
+/*
+ * Lab4 ASP.NET
+ * Author: Brian Liang
+ * Date: July 2018
+ */
+
 namespace Lab4_BrianLiang
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IIncidentService" in both code and config file together.
@@ -12,13 +18,13 @@ namespace Lab4_BrianLiang
     public interface IIncidentService
     {
         [OperationContract]
-        List<Incident> GetAllIncidents(int techID);
+        List<Incident> GetAllIncidents(int techID);         //operationContract for getting incidents by techID
 
         [OperationContract]
-        List<Incident> GetAllCustIncidents(int custID);
+        List<Incident> GetAllCustIncidents(int custID);     //operationContract for getting incidents by custID
 
         [OperationContract]
-        List<Incident> GetCustomerID();
+        List<Incident> GetCustomerID();                     //operationContract for getting list of customerID's
 
     }
 
@@ -41,7 +47,6 @@ namespace Lab4_BrianLiang
         public string Title { get; set; }       //Title getter setter
         [DataMember]
         public string Description { get; set; }     //Description getter setter
-        //[DataMember]
-        //public string Name { get; set; }            //Customer name from inner join of customer table
+
     }
 }

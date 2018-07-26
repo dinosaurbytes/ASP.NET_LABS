@@ -5,9 +5,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
+/*
+ * Lab4 ASP.NET
+ * Author: Brian Liang
+ * Date: July 2018
+ */
+
 namespace Lab4_BrianLiang
 {
-    public class TechSupportDB
+    public class TechSupportDB                      //connection to the tech support database
     {
         public static SqlConnection GetConnection()     //GetConnection 
         {

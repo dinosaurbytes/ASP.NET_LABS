@@ -10,11 +10,11 @@ namespace Lab4_BrianLiang_WebApp
 {
     public partial class CustomerIncidentForm : System.Web.UI.Page
     {
-        // create proxy object for the WCF service
-        IncidentServiceClient proxy =
-            new IncidentServiceClient();
-        Incident[] customerID;
-        Incident[] customerIncidents;
+        IncidentServiceClient proxy = new IncidentServiceClient(); // create proxy object for the WCF service
+
+        Incident[] customerID;          //array of customerID's
+        Incident[] customerIncidents;   //array of customer incidents
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) // first time
@@ -22,31 +22,22 @@ namespace Lab4_BrianLiang_WebApp
             // load the combo box
             customerID = proxy.GetCustomerID();
             Session["cIDs"] = customerID;
-            ddlCustomerID.DataTextField = "CustomerID";
+            //ddlCustomerID.DataTextField = "CustomerID";   //not necessary as we cause use the value    
             ddlCustomerID.DataValueField = "CustomerID";
-            ddlCustomerID.DataSource = customerID;
-            ddlCustomerID.DataBind();
+            ddlCustomerID.DataSource = customerID;          //setting the datasource of customerID to the drop down
+            ddlCustomerID.DataBind();           //databinding the drop down list
             }
             else // retrieve from session
             {
                 customerID = (Incident[])Session["cIDs"];
             }
 
-            customerIncidents = proxy.GetAllCustIncidents(Convert.ToInt32(ddlCustomerID.Text));
+            customerIncidents = proxy.GetAllCustIncidents(Convert.ToInt32(ddlCustomerID.Text));     //useing the text value in dropdown list for the customerID
 
-            gvCustomerIncidents.DataSource = customerIncidents;
-            gvCustomerIncidents.DataBind();
-
-            //dvCustomerIncidents.DataSource = customerIncidents;
-            //dvCustomerIncidents.DataBind();
+            gvCustomerIncidents.DataSource = customerIncidents;     //setting the datasource for customerIncident to the dropdown
+            gvCustomerIncidents.DataBind();     //databinding the dropdown list
             
-
-
-
-
         }
-
-
     }
 }
         
