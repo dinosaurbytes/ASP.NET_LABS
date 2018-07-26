@@ -9,8 +9,13 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:DropDownList ID="ddlCustomerID" runat="server" AutoPostBack="True">
+            <asp:Label ID="Label1" runat="server" Text="CustomerID:"></asp:Label>
+&nbsp;<asp:DropDownList ID="ddlCustomerID" runat="server" AutoPostBack="True">
             </asp:DropDownList>
+            <br />
+            <br />
+            <asp:GridView ID="gvCustomerIncidents" runat="server">
+            </asp:GridView>
         </div>
     </form>
 </body>

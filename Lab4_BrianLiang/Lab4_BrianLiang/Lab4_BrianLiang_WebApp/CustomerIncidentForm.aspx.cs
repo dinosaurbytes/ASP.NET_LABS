@@ -14,17 +14,39 @@ namespace Lab4_BrianLiang_WebApp
         IncidentServiceClient proxy =
             new IncidentServiceClient();
         Incident[] customerID;
+        Incident[] customerIncidents;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack) // first time
+            {
             // load the combo box
             customerID = proxy.GetCustomerID();
             Session["cIDs"] = customerID;
             ddlCustomerID.DataTextField = "CustomerID";
             ddlCustomerID.DataValueField = "CustomerID";
             ddlCustomerID.DataSource = customerID;
-
             ddlCustomerID.DataBind();
+            }
+            else // retrieve from session
+            {
+                customerID = (Incident[])Session["cIDs"];
+            }
+
+            customerIncidents = proxy.GetAllCustIncidents(Convert.ToInt32(ddlCustomerID.Text));
+
+            gvCustomerIncidents.DataSource = customerIncidents;
+            gvCustomerIncidents.DataBind();
+
+            //dvCustomerIncidents.DataSource = customerIncidents;
+            //dvCustomerIncidents.DataBind();
+            
+
+
+
+
         }
+
+
     }
 }
         
